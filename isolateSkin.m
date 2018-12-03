@@ -11,19 +11,19 @@ function [BW,maskedRGBImage] = isolateSkin(RGB)
 
 
 % Convert RGB image to chosen color space
-I = rgb2ycbcr(RGB);
+I = rgb2lab(RGB);
 
 % Define thresholds for channel 1 based on histogram settings
-channel1Min = 0.000;
-channel1Max = 123.000;
+channel1Min = 33.822;
+channel1Max = 64.092;
 
 % Define thresholds for channel 2 based on histogram settings
-channel2Min = 108.000;
-channel2Max = 121.000;
+channel2Min = 3.952;
+channel2Max = 17.942;
 
 % Define thresholds for channel 3 based on histogram settings
-channel3Min = 123.000;
-channel3Max = 140.000;
+channel3Min = 4.862;
+channel3Max = 16.735;
 
 % Create mask based on chosen histogram thresholds
 sliderBW = (I(:,:,1) >= channel1Min ) & (I(:,:,1) <= channel1Max) & ...
